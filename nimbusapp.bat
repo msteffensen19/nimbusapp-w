@@ -1,5 +1,5 @@
 @echo off
-rem Nimbusapp for Windows Launcher
+rem Nimbusapp for Windows Launcher v1
 
 rem TODO: Remove this
 rem Fix PATH, sometimes the shell does not include perl
