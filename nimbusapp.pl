@@ -189,16 +189,16 @@ sub docker_compose($cmd, $params, $args) {
     debug("Running: ", join ' ', @compose);
     
     if ($cmd eq 'start') {
-        system "taskkill /IM magentproc.exe /F";
+        system "taskkill /IM magentproc.exe /F >nul 2>&1";
     }
+    
+     system @compose;
 	
-	if ($cmd eq 'stop') {
+    if ($cmd eq 'stop') {
         system "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
     }
     
-    system @compose;
-
-    return 0;
+       return 0;
 }
 
 sub docker_app_compose {
