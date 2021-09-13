@@ -195,7 +195,7 @@ sub docker_compose($cmd, $params, $args) {
      system @compose;
 	
     if ($cmd eq 'stop') {
-        system "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
+        system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
     }
     
        return 0;
