@@ -22,8 +22,8 @@ no warnings 'experimental::signatures';
 use feature 'signatures';
 
 use constant {
-    RELEASE_VERSION => "1.5.0",
-    RELEASE_DATE    => "2021-03-15",
+    RELEASE_VERSION => "1.5.0-nc",
+    RELEASE_DATE    => "2021-09-14",
     COMPOSE_FILE    => 'docker-compose.yml'
 };
 
