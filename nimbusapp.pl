@@ -188,13 +188,13 @@ sub docker_compose($cmd, $params, $args) {
     my @compose = ( 'docker-compose', '-f', $params->{composeFile}, '-p', $params->{image}, $cmd, @$args );
     debug("Running: ", join ' ', @compose);
     
-    if ($cmd eq 'start') {
+    if ($cmd eq 'start' || $cmd eq 'up') {
         system "taskkill /IM magentproc.exe /F >nul 2>&1";
     }
     
      system @compose;
 	
-    if ($cmd eq 'stop') {
+    if ($cmd eq 'stop' || $cmd eq 'down') {
         system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
     }
     
