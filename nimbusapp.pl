@@ -188,12 +188,14 @@ sub docker_compose($cmd, $params, $args) {
     my @compose = ( 'docker-compose', '-f', $params->{composeFile}, '-p', $params->{image}, $cmd, @$args );
     debug("Running: ", join ' ', @compose);
     
+    # Steffensen change - added this if statement to stop LR agent process for start or up
     if ($cmd eq 'start' || $cmd eq 'up') {
         system "taskkill /IM magentproc.exe /F >nul 2>&1";
     }
     
      system @compose;
-	
+
+    # Steffensen change - added this if statement to start LR agent process for stop or down
     if ($cmd eq 'stop' || $cmd eq 'down') {
         system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
     }
